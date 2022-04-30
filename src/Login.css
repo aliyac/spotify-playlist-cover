@@ -7,6 +7,7 @@
 
 .login > img {
   height: 200px;
+  margin-bottom:-20%;
 }
 
 .login > a {
@@ -15,5 +16,8 @@
   padding: 20px;
   border-radius: 99px;
   font-weight: 800;
-  background-color: #1db954;
+  background-color: #fb7ea8;
+}
+.login > a:hover {
+  font-size: 17px;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Body.css";
+import DisplayCover from "./DisplayCover"
 import Header from "./Header";
 import { useStateValue } from "./StateProvider";
 import SongRow from "./SongRow";
@@ -8,7 +9,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
 function Body({ spotify }) {
-  const [{ discover_weekly }, dispatch] = useStateValue();
+  const [{ tracks }, dispatch] = useStateValue();
 
   const playPlaylist = (id) => {
     spotify
@@ -53,11 +54,12 @@ function Body({ spotify }) {
       <Header spotify={spotify} />
 
       <div className="body__info">
-        <img src={discover_weekly?.images[0].url} alt="" />
+        
+        <DisplayCover/>
         <div className="body__infoText">
           <strong>PLAYLIST</strong>
-          <h2>Discover Weekly</h2>
-          <p>{discover_weekly?.description}</p>
+          <h2>Your Top Songs</h2>
+          <p>This playlist cover was generated based on sound features from your top 50 songs.</p>
         </div>
       </div>
 
@@ -70,8 +72,8 @@ function Body({ spotify }) {
           <FavoriteIcon fontSize="large" />
           <MoreHorizIcon />
         </div>
-
-        {discover_weekly?.tracks.items.map((item) => (
+        
+        {tracks?.tracks.items.map((item) => (
           <SongRow playSong={playSong} track={item.track} />
         ))}
       </div>

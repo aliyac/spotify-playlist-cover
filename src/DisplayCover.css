@@ -1,0 +1,12 @@
+#coverContainer {
+    height:150px;
+    max-width:300px;
+}
+circle { fill: #fb7ea8; animation: pulse 2s alternate infinite; }
+@keyframes pulse {
+  100% {
+    r: 30;
+  }
+}
+polygon { fill: #fb7ea8; animation: pulse 2s alternate infinite; }
+

@@ -8,4 +8,5 @@ export const StateProvider = ({ reducer, initialState, children }) => (
   </StateContext.Provider>
 );
 
+// React Context API
 export const useStateValue = () => useContext(StateContext);

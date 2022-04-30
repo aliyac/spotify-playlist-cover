@@ -8,10 +8,15 @@ export const initialState = {
   top_artists: null,
   playing: false,
   item: null,
+  tracks: null,
+  features:null,
 };
 
 const reducer = (state, action) => {
   console.log(action);
+  // Listen to actions and return new states to StateProvider
+  // Action -> type, [payload]
+  
   switch (action.type) {
     case "SET_USER":
       return {
@@ -60,6 +65,30 @@ const reducer = (state, action) => {
         ...state,
         playlists: action.playlists,
       };
+
+      case "SET_TRACKS":
+        return {
+          ...state,
+          tracks: action.tracks,
+        };
+
+        case "SET_FEATURES":
+          return {
+            ...state,
+            features: action.features,
+            danceability: action.danceability,
+            key: action.key,
+            loudness: action.loudness,
+            valence: action.valence,
+            tempo: action.tempo,
+            mode: action.mode,
+            energy: action.energy,
+            speechiness: action.speechiness,
+            acousticness: action.acousticness,
+            instrumentalness: action.instrumentalness,
+            liveness: action.liveness,
+          };
+
     default:
       return state;
   }
